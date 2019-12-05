@@ -1,0 +1,30 @@
+.book,
+.book-heading {
+    display: flex;
+    justify-content: space-between;
+}
+
+.book-heading {
+    font-weight: bolder;
+}
+
+th,
+td {
+    border-bottom: 1px solid #ddd;
+    width: 200px;
+    height: 40px;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+tr:nth-child(even) {
+    background-color: #d6bebe;
+}
+
+.delete {
+    cursor: pointer;
+}
