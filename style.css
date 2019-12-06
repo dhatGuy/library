@@ -1,3 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header{
+    text-align: center;
+    /* width: 80%; */
+    margin: 40px 0;
+    /* padding: 50px; */
+}
+
+header h1{
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
 .book,
 .book-heading {
     display: flex;
@@ -27,4 +45,70 @@ tr:nth-child(even) {
 
 .delete {
     cursor: pointer;
+}
+
+.book-form{
+    background-color: #f6f7f8;
+    border: 1px solid #d6d9dc;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+}
+
+.input-row{
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.input-row input[type="text"], .input-row input[type="number"]{
+    width: 100%;
+    padding: 7px;
+    font-size: 14px;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    border: none;
+}
+
+.input-row label{
+    margin-bottom: 15px;
+}
+
+.button-row{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+input.btn {
+    width: 100px;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 10px 0;
+    background-color: #5995DA;
+    border: none;
+    color: #fff;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+}
+
+input.btn:hover {
+    background-color: #76AEED;
+}
+
+input.btn:active{
+    background-color: #407FC7;
 }

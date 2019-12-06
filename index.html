@@ -10,29 +10,35 @@
     </head>
     
     <body>
+
+        <header>
+            <h1>Library</h1>
+        </header>
         <div class="container">
             
-            <form name="book-form" id="book-form">
-                <div class="title">
-                    <label for="title">Title: </label>
+            <form class="book-form" id="book-form">
+                <div class="title input-row">
+                    <label for="title">Title </label>
                     <input type="text" data-name="title" >
                 </div>
-                <div class="author">
-                    <label for="author">Author: </label>
+                <div class="author input-row">
+                    <label for="author">Author </label>
                     <input type="text" data-name="author" >
                 </div>
-                <div class="pages">
-                    <label for="pages">Pages: </label>
+                <div class="pages input-row">
+                    <label for="pages">Pages </label>
                     <input type="number" data-name="page" >
                 </div>
-                <div class="read">
+                <div class="read input-row">
                     <label for="title">read: </label>
                     <input type="checkbox" name="read" data-name="read">
                 </div>
+                <div class="button-row">
                 <input type="submit" value="Add Book" class="btn btn-book">
+                </div>
             </form>
             
-            <header class="">
+            <div class="">
                 <table class="table book-table">
                     <thead>
                         <tr>
@@ -47,8 +53,8 @@
                         
                     </tbody>
                 </table>
-            </header>
-        </div>
+            </div>
+        </form>
         <script src="./script.js"></script>
     </body>
     
