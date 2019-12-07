@@ -1,4 +1,3 @@
-console.clear();
 // Library array to store the books
 let myLibrary = [
     new Book("The Hobbit", "J.R.R. Tolkien", 295, true)
@@ -41,7 +40,7 @@ function render() {
         <td>${books.author}</td>
         <td>${books.pages}</td>
         <td class="read-status">${books.read}</td>
-        <td><button class="delete"><i title="Delete book" class="far fa-trash-alt"></i></button></td>
+        <td><button class="delete">Delete</button></td>
         `
     });
     list.appendChild(row)
