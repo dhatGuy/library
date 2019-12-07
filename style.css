@@ -7,10 +7,13 @@
 
 header {
     text-align: center;
-    margin: 40px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0;
 }
 
-header h1, .container {
+.container {
     margin-bottom: 20px;
 }
 
@@ -42,7 +45,7 @@ td {
 }
 
 table {
-    width: 60%;
+    width: 70%;
     margin: 0 auto 25px auto;
     border-collapse: collapse;
 }
@@ -190,4 +193,9 @@ legend {
 
 .read-status{
     cursor: pointer;
+}
+
+.fa-book{
+    font-size: 32px;
+    margin-right: 5px;
 }
