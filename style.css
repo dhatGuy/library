@@ -1,19 +1,22 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
 }
 
-header{
+header {
     text-align: center;
-    /* width: 80%; */
     margin: 40px 0;
-    /* padding: 50px; */
 }
 
-header h1{
-    font-size: 30px;
+header h1, .container {
     margin-bottom: 20px;
+}
+
+.flex-btn{
+    display: flex;
+    justify-content: center;
 }
 
 .book,
@@ -26,6 +29,10 @@ header h1{
     font-weight: bolder;
 }
 
+thead {
+    border-top: 1px solid #ddd;
+}
+
 th,
 td {
     border-bottom: 1px solid #ddd;
@@ -35,19 +42,35 @@ td {
 }
 
 table {
-    width: 100%;
+    width: 60%;
+    margin: 0 auto 25px auto;
     border-collapse: collapse;
 }
 
 tr:nth-child(even) {
-    background-color: #d6bebe;
+    background-color: #deebe7;
 }
 
-.delete {
+.delete, .add {
+    font-weight: 700;
     cursor: pointer;
+    padding: 10px 5px;
+    background-color: #5995DA;
+    border: none;
+    color: #fff;
+    border-radius: 3px;
 }
 
-.book-form{
+.delete:hover {
+    background-color: #bc3315;
+}
+
+.delete:active {
+    position: relative;
+    top: 1px;
+}
+
+.book-form {
     background-color: #f6f7f8;
     border: 1px solid #d6d9dc;
     border-radius: 3px;
@@ -55,20 +78,30 @@ tr:nth-child(even) {
     -moz-border-radius: 3px;
     -ms-border-radius: 3px;
     -o-border-radius: 3px;
-    width: 80%;
+    width: 50%;
     height: auto;
-    margin: 0 auto;
+    margin: 0 auto 20px auto;
+    padding: 10px;
+    display: none;
 }
 
-.input-row{
+.display{
+    display: block;
+}
+
+.input-row {
     margin-bottom: 40px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     flex-wrap: wrap;
+    margin-left: 10px;
 }
 
-.input-row input[type="text"], .input-row input[type="number"]{
+.input-row input[type="text"],
+.input-row input[type="number"] {
+    appearance: none;
+    transition: 0.5s all linear;
     width: 100%;
     padding: 7px;
     font-size: 14px;
@@ -77,14 +110,28 @@ tr:nth-child(even) {
     -moz-border-radius: 3px;
     -ms-border-radius: 3px;
     -o-border-radius: 3px;
-    border: none;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: groove;
+    -webkit-transition: 0.5s all linear;
+    -moz-transition: 0.5s all linear;
+    -ms-transition: 0.5s all linear;
+    -o-transition: 0.5s all linear;
 }
 
-.input-row label{
-    margin-bottom: 15px;
+input:focus,
+input:active {
+    border-color: transparent;
+    border-bottom: 2px solid #1c87c9;
 }
 
-.button-row{
+.input-row label {
+    margin-bottom: 10px;
+    font-weight: 900;
+}
+
+.button-row {
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -105,10 +152,42 @@ input.btn {
     -o-border-radius: 3px;
 }
 
-input.btn:hover {
+input.btn:hover, .add:hover {
     background-color: #76AEED;
 }
 
-input.btn:active{
+input.btn:active, .add:active {
     background-color: #407FC7;
+}
+
+legend {
+    color: #000;
+    background-color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid rgb(180, 168, 168);
+    line-height: 25px;
+    font-weight: 900;
+    display: flex;
+    flex-direction: column;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+.fa-times{
+    width: 100%;
+    text-align: end;
+    color: red;
+    font-size: larger;
+    cursor: pointer;
+}
+
+.fa-times:hover{
+    font-size: 25px;
+}
+
+.read-status{
+    cursor: pointer;
 }

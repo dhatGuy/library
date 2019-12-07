@@ -1,34 +1,29 @@
 console.clear();
 let myLibrary = [
-    new Book("The Hobbit", "J.R.R. Tolkien", 295, false)
+    new Book("The Hobbit", "J.R.R. Tolkien", 295, true)
 ];
-
-let deleteBtn = document.querySelector('.delete');
 
 function Book(title, author, pages, read = true) {
     this.title = title
     this.author = author
     this.pages = pages
-    this.read = read ? "Read" : "Not read"
+    this.read = read ? "✔" : "❌"
 }
-// Book.prototype.info = function () {
-    //   return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`
-    // }
-    
-    function addBookToLibrary() {
-        let title = document.querySelector('[data-name=title]').value;
-        let author = document.querySelector('[data-name=author]').value;
-        let pages = document.querySelector('[data-name=page]').value;
-        let read = document.querySelector('[data-name=read]').checked;
-        
-        myLibrary.push(new Book(title, author, pages, read))
-    }
+
+function addBookToLibrary() {
+    let title = document.querySelector('[data-name=title]').value;
+    let author = document.querySelector('[data-name=author]').value;
+    let pages = document.querySelector('[data-name=page]').value;
+    let read = document.querySelector('[data-name=read]').checked;
+
+    myLibrary.push(new Book(title, author, pages, read))
+}
 
 function clearFields() {
     document.querySelector('[data-name=title]').value = "";
     document.querySelector('[data-name=author]').value = "";
     document.querySelector('[data-name=page]').value = "";
-    document.querySelector('[data-name=read]').checked = false;
+    document.querySelector('[data-name=read]').checked;
 }
 
 function render() {
@@ -36,22 +31,22 @@ function render() {
     const row = document.createElement('tr');
     myLibrary.forEach(books => {
         row.innerHTML =
-        `
+            `
         <td>${books.title}</td>
         <td>${books.author}</td>
         <td>${books.pages}</td>
-        <td>${books.read}</td>
-        <td class="delete">X</td>
+        <td class="read-status">${books.read}</td>
+        <td><button class="delete"><i title="Delete book" class="far fa-trash-alt"></i></button></td>
         `
     });
     list.appendChild(row)
 }
 
-document.querySelector('#book-form').addEventListener('submit', (e) => {
+document.querySelector('form').addEventListener('submit', (e) => {
     let title = document.querySelector('[data-name=title]').value;
     let author = document.querySelector('[data-name=author]').value;
     let pages = document.querySelector('[data-name=page]').value;
-    
+
     if (title == "" || author == "" || pages == "") {
         alert('Fill in the empty spaces')
     } else {
@@ -61,11 +56,41 @@ document.querySelector('#book-form').addEventListener('submit', (e) => {
     }
     e.preventDefault();
 });
-document.querySelector('.bookList').addEventListener('click', (e)=>{
-    if(e.target.classList.contains('delete')){
-        e.target.parentElement.remove();
-        console.log(e.target.parentElement)
+document.querySelector('.bookList').addEventListener('click', (e) => {
+    if (e.target.classList.contains('delete')) {
+        e.target.parentElement.parentElement.remove();
     }
 })
 
 document.addEventListener('DOMContentLoaded', render);
+
+let openForm = () => {
+    document.querySelector('.add').addEventListener('click', (e) => {
+        let form = document.querySelector('form');
+        form.style.display = 'block'
+        document.querySelector('.add').style.display = 'none';
+    })
+}
+
+let closeForm = ()=>{
+    document.querySelector('.fa-times').addEventListener("click", ()=>{
+        let form = document.querySelector('form');
+        form.style.display = 'none'
+        document.querySelector('.add').style.display = 'block';
+    })
+} 
+
+let changeRead = () =>{
+    document.querySelector('.bookList').addEventListener('click', (e)=>{
+        if(e.target.textContent == "✔"){
+            e.target.textContent = "❌"
+        } else{
+            e.target.textContent = "✔" 
+        }
+    })
+}
+
+openForm()
+closeForm()
+changeRead()
+
