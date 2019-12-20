@@ -22,16 +22,6 @@ header {
     justify-content: center;
 }
 
-.book,
-.book-heading {
-    display: flex;
-    justify-content: space-between;
-}
-
-.book-heading {
-    font-weight: bolder;
-}
-
 thead {
     border-top: 1px solid #ddd;
 }
@@ -68,11 +58,6 @@ tr:nth-child(even) {
     background-color: #bc3315;
 }
 
-.delete:active {
-    position: relative;
-    top: 1px;
-}
-
 .book-form {
     background-color: #f6f7f8;
     border: 1px solid #d6d9dc;
@@ -103,7 +88,6 @@ tr:nth-child(even) {
 
 .input-row input[type="text"],
 .input-row input[type="number"] {
-    appearance: none;
     transition: 0.5s all linear;
     width: 100%;
     padding: 7px;
@@ -180,15 +164,30 @@ legend {
 }
 
 .fa-times{
-    width: 100%;
-    text-align: end;
     color: red;
     font-size: larger;
     cursor: pointer;
 }
 
+.close{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 25px;
+}
+
 .fa-times:hover{
     font-size: 25px;
+    transition: 200ms all cubic-bezier(1, -0.46, 0, -0.82);
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -webkit-transition: 200ms all cubic-bezier(1, -0.46, 0, -0.82);
+    -moz-transition: 200ms all cubic-bezier(1, -0.46, 0, -0.82);
+    -ms-transition: 200ms all cubic-bezier(1, -0.46, 0, -0.82);
+    -o-transition: 200ms all cubic-bezier(1, -0.46, 0, -0.82);
 }
 
 .read-status{
