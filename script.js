@@ -91,14 +91,16 @@ document.addEventListener('DOMContentLoaded', render);
 
 // change status of read
     document.querySelector('.bookList').addEventListener('click', (e) => {
-        if (e.target.className == "read-status" && 
-            e.target.textContent == '✔') {
+        if (e.target.className == "read-status"){ 
+            if(e.target.textContent == '✔') {
                 e.target.textContent = "❌"
                 changeReadStatus(e.target.textContent, e.target.parentElement.children[0].textContent)
             } else {
                 e.target.textContent = "✔"
                 changeReadStatus(e.target.textContent, e.target.parentElement.children[0].textContent)
             }
+        }
+        
         })
 
 function storeBooks(){
