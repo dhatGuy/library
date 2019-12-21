@@ -9,7 +9,7 @@ function Book(title, author, pages, read = true) {
 }
 
 // add book to library from user's input
-function addBookToLibrary() {
+const addBookToLibrary = () =>{
     let title = document.querySelector('[data-name=title]').value;
     let author = document.querySelector('[data-name=author]').value;
     let pages = document.querySelector('[data-name=page]').value;
@@ -28,7 +28,7 @@ function clearFields() {
 }
 
 // add the book details to the DOM
-function render() {
+const render = () =>{
     const list = document.querySelector('.bookList');
     let row;
     for (var book of myLibrary) {
@@ -71,47 +71,37 @@ document.querySelector('.bookList').addEventListener('click', (e) => {
     }
 })
 
-//load existing books upon opening the page
+//load existing books from storage upon opening the page
 document.addEventListener('DOMContentLoaded', render);
 
 // show add book form
-let openForm = () => {
     document.querySelector('.add').addEventListener('click', (e) => {
         let form = document.querySelector('form');
         form.style.display = 'block'
         document.querySelector('.add').style.display = 'none';
         document.querySelector('[data-name=title]').focus()
     })
-}
 
 // close add book form
-let closeForm = () => {
     document.querySelector('.fa-times').addEventListener("click", () => {
         let form = document.querySelector('form');
         form.style.display = 'none'
         document.querySelector('.add').style.display = 'block';
     })
-}
 
 // change status of read
-let changeRead = () => {
     document.querySelector('.bookList').addEventListener('click', (e) => {
-        if (e.target.className == "read-status") {
-            if (e.target.textContent == '✔') {
+        if (e.target.className == "read-status" && 
+            e.target.textContent == '✔') {
                 e.target.textContent = "❌"
+                changeReadStatus(e.target.textContent, e.target.parentElement.children[0].textContent)
             } else {
                 e.target.textContent = "✔"
+                changeReadStatus(e.target.textContent, e.target.parentElement.children[0].textContent)
             }
-        }
-    })
-}
+        })
 
-openForm()
-closeForm()
-changeRead()
-
-
-function storeBooks() {
+function storeBooks(){
     let books;
     if (localStorage.getItem('library') === null) {
         books = []
@@ -122,16 +112,19 @@ function storeBooks() {
 }
 
 // remove book
-function removebook(title) {
-    const book = document.querySelector('.bookList');
+const removebook = (title) => {
     const library = JSON.parse(localStorage.getItem('library'))
-
     library.forEach((book, index) => {
-        // console.log(index, book.title)
-        if (book.title == title) {
-            library.splice(index, 1)
-        }
-        localStorage.setItem('library', JSON.stringify(library))
+        if (book.title == title) library.splice(index, 1)
     })
+    localStorage.setItem('library', JSON.stringify(library))
 }
 
+// change read status
+const changeReadStatus = (read, title) => {
+    const library = JSON.parse(localStorage.getItem('library'))
+    library.forEach(book=>{
+        if(book.title === title) book.read = read
+    })
+    localStorage.setItem('library', JSON.stringify(library))
+}
