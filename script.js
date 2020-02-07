@@ -1,11 +1,13 @@
 let myLibrary = storeBooks()
 
 // function constructor for the book
-function Book(title, author, pages, read = true) {
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.read = read ? "✔" : "❌"
+class Book {
+    constructor(title, author, pages, read = true) {
+        this.title = title
+        this.author = author
+        this.pages = pages
+        this.read = read ? "✔" : "❌"
+    }
 }
 
 // add book to library from user's input
