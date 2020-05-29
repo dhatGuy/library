@@ -1,3 +1,14 @@
+@keyframes slide-down {
+    from {
+        max-height: 0;
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+        max-height: 1000px;
+    }
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -17,7 +28,7 @@ header {
     margin-bottom: 20px;
 }
 
-.flex-btn{
+.flex-btn {
     display: flex;
     justify-content: center;
 }
@@ -40,11 +51,18 @@ table {
     border-collapse: collapse;
 }
 
+@media screen and (max-width: 786px){
+    table {
+        width: 90%;
+    }
+}
+
 tr:nth-child(even) {
     background-color: #deebe7;
 }
 
-.delete, .add {
+.delete,
+.add {
     font-weight: 700;
     cursor: pointer;
     padding: 10px 5px;
@@ -58,7 +76,7 @@ tr:nth-child(even) {
     background-color: #bc3315;
 }
 
-.book-form {
+form {
     background-color: #f6f7f8;
     border: 1px solid #d6d9dc;
     border-radius: 3px;
@@ -71,9 +89,22 @@ tr:nth-child(even) {
     margin: 0 auto 20px auto;
     padding: 10px;
     display: none;
+    animation: slide-down .3s ease-in;
 }
 
-.display{
+@media screen and (max-width: 786px) {
+    form {
+        width: 90%;
+    }
+}
+
+@keyframes fade-out {
+    100% {
+        height: auto;
+    }
+}
+
+.display {
     display: block;
 }
 
@@ -88,7 +119,7 @@ tr:nth-child(even) {
 
 .input-row input[type="text"],
 .input-row input[type="number"] {
-    transition: 0.5s all linear;
+    transition: all 0.2s ease-in;
     width: 100%;
     padding: 7px;
     font-size: 14px;
@@ -101,14 +132,11 @@ tr:nth-child(even) {
     border-right-style: hidden;
     border-left-style: hidden;
     border-bottom-style: groove;
-    -webkit-transition: 0.5s all linear;
-    -moz-transition: 0.5s all linear;
-    -ms-transition: 0.5s all linear;
-    -o-transition: 0.5s all linear;
 }
 
 input:focus,
 input:active {
+    padding: 10px;
     border-color: transparent;
     border-bottom: 2px solid #1c87c9;
 }
@@ -139,11 +167,13 @@ input.btn {
     -o-border-radius: 3px;
 }
 
-input.btn:hover, .add:hover {
+input.btn:hover,
+.add:hover {
     background-color: #76AEED;
 }
 
-input.btn:active, .add:active {
+input.btn:active,
+.add:active {
     background-color: #407FC7;
 }
 
@@ -163,38 +193,38 @@ legend {
     -o-border-radius: 5px;
 }
 
-.fa-times{
+.fa-times {
     color: red;
     font-size: larger;
     cursor: pointer;
-}
-
-.close{
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    height: 25px;
-}
-
-.fa-times:hover{
-    font-size: 25px;
     transition: 200ms all cubic-bezier(1, -0.46, 0, -0.82);
-    transform: rotate(180deg);
-    -webkit-transform: rotate(180deg);
-    -moz-transform: rotate(180deg);
-    -ms-transform: rotate(180deg);
-    -o-transform: rotate(180deg);
     -webkit-transition: 200ms all cubic-bezier(1, -0.46, 0, -0.82);
     -moz-transition: 200ms all cubic-bezier(1, -0.46, 0, -0.82);
     -ms-transition: 200ms all cubic-bezier(1, -0.46, 0, -0.82);
     -o-transition: 200ms all cubic-bezier(1, -0.46, 0, -0.82);
 }
 
-.read-status{
+.close {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 25px;
+}
+
+.fa-times:hover {
+    font-size: 30px;
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+}
+
+.read-status {
     cursor: pointer;
 }
 
-.fa-book{
+.fa-book {
     font-size: 32px;
     margin-right: 5px;
 }
