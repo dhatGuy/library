@@ -1,31 +1,39 @@
 {
-  "name": "react-library",
+  "name": "fulljs",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --mode development --port 3000",
-    "build": "webpack --mode production"
+    "start": "npm run build:css && webpack-dev-server -d",
+    "build": "npm run build:css && webpack -p",
+    "build:css": "postcss src/styles/tailwind.css -o src/styles/main.css"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/core": "^7.10.2",
+    "@babel/node": "^7.10.1",
+    "@babel/preset-env": "^7.10.2",
+    "@babel/preset-react": "^7.10.1",
+    "babel-loader": "^8.1.0",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
   },
   "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.5",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
+    "autoprefixer": "^9.8.0",
+    "babel-eslint": "^10.1.0",
     "css-loader": "^3.5.3",
+    "eslint": "^7.1.0",
+    "eslint-plugin-react": "^7.20.0",
+    "eslint-plugin-react-hooks": "^4.0.4",
     "html-webpack-plugin": "^4.3.0",
+    "nodemon": "^2.0.4",
+    "postcss-cli": "^7.1.1",
     "style-loader": "^1.2.1",
     "styled-components": "^5.1.1",
-    "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.11",
+    "tailwindcss": "^1.4.6",
     "webpack-dev-server": "^3.11.0"
   }
 }

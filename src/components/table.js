@@ -1,32 +1,32 @@
 import React from 'react';
-import TableData from "./tableData";
+import TableBody from "./tableBody";
+import TableHeader from "./tableHeader"
 
-const Table = ({data, removeRow}) => {
+const Table = ({data, removeRow, toggleRead}) => {
   return (
     <table>
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th>Author</th>
-          <th>Pages</th>
-          <th>Read</th>
-          <th></th>
-        </tr>
-      </thead>
+      <TableHeader />
       <tbody>
-        {data.map((row, index)=>{
-          return (
-          <TableData
-            key={index}
-            id={index}
-            title={row.title}
-            author={row.author}
-            pages={row.pages}
-            read={row.read}
-            removeRow={()=>removeRow(index)}
-          />
-          )
-        })}
+        {data.length == 0 || data == undefined ? (
+          <tr>
+            <td colSpan="4">Library empty</td>
+          </tr>
+        ) : (
+          data.map((row, index)=>{
+            return (
+              <TableBody
+                key={index}
+                id={index}
+                title={row.title}
+                author={row.author}
+                pages={row.pages}
+                read={row.read}
+                removeRow={()=>removeRow(index)}
+                toggleRead={()=>toggleRead(index)}
+              />
+              )
+          })
+        ) }
       </tbody>
     </table>
   )
