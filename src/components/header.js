@@ -3,7 +3,7 @@ import React from 'react';
 
 const Header = () => {
   return (
-    <header className="flex bg-blue-400">
+    <header className="flex justify-center bg-blue-400">
       <h1>MyLibrary</h1>
     </header>
   )

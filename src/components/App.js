@@ -2,52 +2,51 @@ import React, { Component } from "react";
 import Header from "./header";
 import Table from "./table"
 import Form from "./form"
+import "../styles/main.css"
+import "../styles/tailwind.css"
 
 class App extends Component {
-  constructor(props) {
-    super (props);
-    this.removeRow = this.removeRow.bind(this);
-    this.toggleRead = this.toggleRead.bind(this)
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.state = {
+    state = {
       books: [
-      //   {
-      //   title: "Lord of the Rings",
-      //   author: "J.R.R. Tolkien",
-      //   pages: 442,
-      //   read: "true"
-      // },
-      // {
-      //   title: "Lord of the Rings",
-      //   author: "J.R.R. Tolkien",
-      //   pages: 442,
-      //   read: "false"
-      // },
+        {
+        title: "Lord of the Rings",
+        author: "J.R.R. Tolkien",
+        pages: 442,
+        read: "true"
+      },
+      {
+        title: "Lord of the Rings",
+        author: "J.R.R. Tolkien",
+        pages: 442,
+        read: "false"
+      },
       ],
       newBook: {
         title: "",
         author: "",
         pages: "",
         read: "no"
-      }
+      },
+      errors: {
+        title: "",
+        author: "",
+        pages: ""
+       }
     }
-  }
 
-  removeRow(index){
+  removeRow = (index) =>{
     let booksClone = this.state.books.slice()
     booksClone.splice(index, 1)
     this.setState({books: booksClone})
   }
 
-  toggleRead(index){
+  toggleRead = (index) =>{
     let booksClone = this.state.books.slice()
-    console.log(booksClone[index])
     booksClone[index].read = booksClone[index].read == '✔' ? '❌' : '✔'
     this.setState({ books: booksClone })
   }
 
-  handleChange(e){
+  handleChange = (e) => {
     const {value, name } = e.target
       this.setState(prevState => ({
         newBook: {
@@ -57,7 +56,7 @@ class App extends Component {
       }))
   }
 
-  handleSubmit(e) {
+  handleSubmit =(e) => {
     e.preventDefault()
     let booksClone = this.state.books.slice()
     booksClone.push({

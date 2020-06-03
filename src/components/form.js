@@ -7,6 +7,7 @@ const Form = ({titleValue, authorValue, pagesValue, read, handleChange, submitFo
       <Input name="title" value={titleValue} handleChange={handleChange} type="text" placeholder="The Hobbit">
         <label htmlFor="title">Title</label>
       </Input>
+      {titleValue.length == 0 && <span>Cannot be empty</span>}
       <Input name="author" value={authorValue} handleChange={handleChange} type="text" placeholder="J.R.R. Tolkien">
         <label htmlFor="author">Author</label>
       </Input>
