@@ -1,13 +1,17 @@
 import React from 'react';
 import Input from "./input";
 
-const Form = ({titleValue, authorValue, pagesValue, read, handleChange, submitForm}) => {
+const Form = ({titleValue, authorValue, toggleShown, pagesValue, isShown, read, handleChange, submitForm, error}) => {
   return (
-    <form onSubmit={submitForm}>
+    <div className="container flex flex-col items-center ">
+    <form className="" onSubmit={submitForm} style={{display: isShown ? 'block' : 'none' }}>
+      <div className="cursor-pointer flex justify-end" onClick={toggleShown} >X
+        <i class="fas fa-times" title="Close"></i>
+      </div>
       <Input name="title" value={titleValue} handleChange={handleChange} type="text" placeholder="The Hobbit">
         <label htmlFor="title">Title</label>
       </Input>
-      {titleValue.length == 0 && <span>Cannot be empty</span>}
+      {error.length < 5 && <span>Cannot be empty</span>}
       <Input name="author" value={authorValue} handleChange={handleChange} type="text" placeholder="J.R.R. Tolkien">
         <label htmlFor="author">Author</label>
       </Input>
@@ -24,6 +28,8 @@ const Form = ({titleValue, authorValue, pagesValue, read, handleChange, submitFo
       </legend>
       <Input type="submit" value="Submit"/>
     </form>
+      <button className="add" style={{display: isShown ? 'none' : "block"}} onClick={toggleShown}> Add </button>
+    </div>
   )
 }
 

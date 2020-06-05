@@ -1,10 +1,10 @@
 import React from 'react';
-// import styled from "styled-components";
 
 const Header = () => {
   return (
-    <header className="flex justify-center bg-blue-400">
-      <h1>MyLibrary</h1>
+    <header className="text-4xl font-bold">
+     <i class="fas fa-book"></i>
+     <h1>MyLibrary</h1>
     </header>
   )
 }

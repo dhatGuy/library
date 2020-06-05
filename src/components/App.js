@@ -3,7 +3,7 @@ import Header from "./header";
 import Table from "./table"
 import Form from "./form"
 import "../styles/main.css"
-import "../styles/tailwind.css"
+import "../styles/styles.css"
 
 class App extends Component {
     state = {
@@ -31,13 +31,21 @@ class App extends Component {
         title: "",
         author: "",
         pages: ""
-       }
+       },
+       isShown: false,
     }
 
   removeRow = (index) =>{
     let booksClone = this.state.books.slice()
     booksClone.splice(index, 1)
     this.setState({books: booksClone})
+  }
+
+  toggleShown = () => {
+    this.setState({
+      isShown: !this.state.isShown,
+      addShown: !this.state.addShown
+    })
   }
 
   toggleRead = (index) =>{
@@ -78,7 +86,7 @@ class App extends Component {
 
   render() {
     return (
-      <React.Fragment>
+      <div className="flex flex-col items-center ">
         <Header />
         <Table
         data={this.state.books}
@@ -92,8 +100,12 @@ class App extends Component {
         pagesValue={this.state.newBook.pages}
         handleChange={this.handleChange}
         read={this.state.newBook.read}
+        error={this.state.errors}
+        isShown={this.state.isShown}
+        toggleShown={this.toggleShown}
+        addShown={this.state.addShown}
         />
-      </React.Fragment>
+      </div>
     )
   }
 }
