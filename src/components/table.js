@@ -4,12 +4,12 @@ import TableHeader from "./tableHeader"
 
 const Table = ({data, removeRow, toggleRead}) => {
   return (
-    <table className="table-auto">
+    <table className="w-full sm:w-full md:w-1/2">
       <TableHeader />
       <tbody className="bookList">
         {data.length == 0 || data == undefined ? (
           <tr>
-            <td colSpan="4" className="text-center">Library empty</td>
+            <td colSpan="4" className="py-4 text-center">Library empty</td>
           </tr>
         ) : (
           data.map((row, index)=>{

@@ -28,7 +28,12 @@ const Form = ({titleValue, authorValue, toggleShown, pagesValue, isShown, read, 
       </legend>
       <Input type="submit" value="Submit"/>
     </form>
-      <button className="add" style={{display: isShown ? 'none' : "block"}} onClick={toggleShown}> Add </button>
+      <button
+        className="text-sm bg-blue-500 hover:bg-blue-400 mt-2 text-white p-1 rounded-sm"
+        style={{display: isShown ? 'none' : "block"}}
+        onClick={toggleShown}
+        >Add Book
+      </button>
     </div>
   )
 }
