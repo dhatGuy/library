@@ -2,25 +2,13 @@ import React, { Component } from "react";
 import Header from "./header";
 import Table from "./table"
 import Form from "./form"
+import storeBooks from "./storeBooks"
 import "../styles/main.css"
 import "../styles/styles.css"
 
 class App extends Component {
     state = {
-      books: [
-        {
-        title: "Lord of the Rings",
-        author: "J.R.R. Tolkien",
-        pages: 442,
-        read: "true"
-      },
-      {
-        title: "Lord of the Rings",
-        author: "J.R.R. Tolkien",
-        pages: 442,
-        read: "false"
-      },
-      ],
+      books: storeBooks(),
       newBook: {
         title: "",
         author: "",
@@ -32,13 +20,14 @@ class App extends Component {
         author: "",
         pages: ""
        },
-       isShown: false,
+       isShown: true,
     }
 
   removeRow = (index) =>{
-    let booksClone = this.state.books.slice()
+    let booksClone = JSON.parse(localStorage.getItem('library'));
     booksClone.splice(index, 1)
-    this.setState({books: booksClone})
+    localStorage.setItem('library', JSON.stringify(booksClone))
+    this.setState({books: storeBooks()})
   }
 
   toggleShown = () => {
@@ -49,9 +38,10 @@ class App extends Component {
   }
 
   toggleRead = (index) =>{
-    let booksClone = this.state.books.slice()
+    let booksClone = JSON.parse(localStorage.getItem('library'));
     booksClone[index].read = booksClone[index].read == '✔' ? '❌' : '✔'
-    this.setState({ books: booksClone })
+    localStorage.setItem('library', JSON.stringify(booksClone))
+    this.setState({ books: storeBooks()})
   }
 
   handleChange = (e) => {
@@ -73,8 +63,9 @@ class App extends Component {
       pages: this.state.newBook.pages,
       read: this.state.newBook.read == "yes" ? '✔' : '❌'
     })
+    localStorage.setItem('library', JSON.stringify(booksClone))
     this.setState({
-      books: booksClone,
+      books: storeBooks(),
       newBook: {
         title: "",
         author: "",

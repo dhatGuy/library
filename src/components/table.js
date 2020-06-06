@@ -4,7 +4,7 @@ import TableHeader from "./tableHeader"
 
 const Table = ({data, removeRow, toggleRead}) => {
   return (
-    <table className="w-full sm:w-full md:w-1/2">
+    <table className="md:w-1/2 w-full">
       <TableHeader />
       <tbody className="bookList">
         {data.length == 0 || data == undefined ? (

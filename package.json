@@ -1,5 +1,5 @@
 {
-  "name": "fulljs",
+  "name": "library",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,7 +8,7 @@
     "build": "npm run build:css && webpack -p",
     "build:css": "postcss src/styles/tailwind.css -o src/styles/main.css"
   },
-  "author": "",
+  "author": "Joseph Odunsi",
   "license": "ISC",
   "dependencies": {
     "@babel/core": "^7.10.2",

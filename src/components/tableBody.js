@@ -2,11 +2,11 @@ import React from 'react';
 
 const TableBody = ({title, author, pages, read, toggleRead, removeRow, id}) => {
   return (
-    <tr className="border-2 text-center">
-      <td className="w-3/5 border-2">{title}</td>
-      <td className="w-2/5 border-2">{author}</td>
-      <td className="w-1/5 border-2">{pages}</td>
-      <td className="w-1/5 border-2 cursor-pointer"
+    <tr className="border-b-2 text-center">
+      <td className="">{title}</td>
+      <td className="">{author}</td>
+      <td className="">{pages}</td>
+      <td className="cursor-pointer"
           onClick={()=>toggleRead()}>
             {read}
       </td>

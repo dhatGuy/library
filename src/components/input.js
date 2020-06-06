@@ -2,14 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledInput = styled.input`
-  /* padding: 10px; */
+  padding: 5px;
 `
 
-const Input = ({type, value, placeholder, name, id, checked, children, handleChange}) => {
+const Input = ({type, value, placeholder, name, checked, children, handleChange}) => {
   return (
-    <div>
+    <div
+      className={type== "radio" ? "flex m-2 items-center justify-start" : "mb-4 flex flex-col items-start justify"}
+      >
       {children}
       <StyledInput
+      className={type !== "radio" && "submit" ? "rounded-sm w-full" : null}
       type={type}
       value={value || ""}
       placeholder={placeholder}

@@ -3,10 +3,10 @@ import Input from "./input";
 
 const Form = ({titleValue, authorValue, toggleShown, pagesValue, isShown, read, handleChange, submitForm, error}) => {
   return (
-    <div className="container flex flex-col items-center ">
-    <form className="" onSubmit={submitForm} style={{display: isShown ? 'block' : 'none' }}>
-      <div className="cursor-pointer flex justify-end" onClick={toggleShown} >X
-        <i class="fas fa-times" title="Close"></i>
+    <>
+    <form className="sm:w-1/2 w-full border-2 flex-col m-2 p-2 rounded-sm" onSubmit={submitForm} style={{display: isShown ? 'flex' : 'none' }}>
+      <div className="cursor-pointer self-end" onClick={toggleShown} >
+        X
       </div>
       <Input name="title" value={titleValue} handleChange={handleChange} type="text" placeholder="The Hobbit">
         <label htmlFor="title">Title</label>
@@ -18,23 +18,28 @@ const Form = ({titleValue, authorValue, toggleShown, pagesValue, isShown, read, 
       <Input name="pages" value={pagesValue} handleChange={handleChange} type="number" placeholder="295">
         <label htmlFor="pages">Pages</label>
       </Input>
-      <legend>
+      <fieldset className="bg-white m-2 rounded-lg">
+        <p className="mx-2">Have you read the book before?</p>
         <Input name="read" checked={read == "yes"} value="yes" handleChange={handleChange} type="radio">
           <label htmlFor="yes">Yes</label>
         </Input>
         <Input name="read" checked={read == "no"} value="no" handleChange={handleChange} type="radio">
           <label htmlFor="no">No</label>
         </Input>
-      </legend>
-      <Input type="submit" value="Submit"/>
-    </form>
+      </fieldset>
       <button
+        type="submit"
+        className="self-center text-sm bg-blue-500 hover:bg-blue-400 mt-2 text-white p-1 rounded-sm"
+        >Submit
+      </button>
+    </form>
+    <button
         className="text-sm bg-blue-500 hover:bg-blue-400 mt-2 text-white p-1 rounded-sm"
         style={{display: isShown ? 'none' : "block"}}
         onClick={toggleShown}
         >Add Book
       </button>
-    </div>
+    </>
   )
 }
 
