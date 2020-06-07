@@ -6,7 +6,8 @@ function storeBooks() {
       author: "J.R.R. Tolkien",
       pages: 442,
       read: "true"
-    }];
+    }]
+    localStorage.setItem("library", JSON.stringify(books));
   } else {
     books = JSON.parse(localStorage.getItem('library'));
   }

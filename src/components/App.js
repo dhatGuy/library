@@ -20,7 +20,7 @@ class App extends Component {
         author: "",
         pages: ""
        },
-       isShown: true,
+       isShown: false,
     }
 
   removeRow = (index) =>{
