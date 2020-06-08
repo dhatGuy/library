@@ -7,8 +7,8 @@
 ## About
 
 > MyLibrary is available in two(2) versions.
-> * The first version is created with Vanilla Javascript. [Live Preview](https://dhatguy.github.io/library/)
-> * The second version is created with a Javascript library, Reactjs. [Live Preview](https://myelibrary.netlify.app/)
+> * The first version is created with Vanilla Javascript. [Live Preview](hhttps://rebrand.ly/asjt0a)
+> * The second version is created with a Javascript library, Reactjs. [Live Preview](hhttps://rebrand.ly/e5509)
 
 ## Technologies used
 
