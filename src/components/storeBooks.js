@@ -5,7 +5,7 @@ function storeBooks() {
       title: "Lord of the Rings",
       author: "J.R.R. Tolkien",
       pages: 442,
-      read: "true"
+      read: "✔"
     }]
     localStorage.setItem("library", JSON.stringify(books));
   } else {

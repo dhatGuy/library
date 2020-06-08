@@ -9,7 +9,9 @@ const Table = ({data, removeRow, toggleRead}) => {
       <tbody className="bookList">
         {data.length == 0 || data == undefined ? (
           <tr>
-            <td colSpan="4" className="py-4 text-center">Library empty</td>
+            <td colSpan="4" className="py-4 text-center">
+              Empty library? <br/>Click the button below to add
+            </td>
           </tr>
         ) : (
           data.map((row, index)=>{

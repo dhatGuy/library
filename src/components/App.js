@@ -15,13 +15,38 @@ class App extends Component {
         pages: "",
         read: "no"
       },
-      errors: {
-        title: "",
-        author: "",
-        pages: ""
-       },
-       isShown: false,
+      errors: {},
+      isShown: false
     }
+
+  validateForm =()=> {
+    let fields = this.state.newBook;
+    let errors = {};
+    let formIsValid = true;
+
+    if (!fields["title"]) {
+      formIsValid = false;
+      errors["title"] = "*Title cannot be empty";
+    } else if(fields["title"] <= 2){
+      formIsValid = false
+      errors.title = "Title must be more than 2 characters"
+    }
+
+    if (!fields["author"]) {
+      formIsValid = false;
+      errors["author"] = "*Author name cannot be empty";
+    }
+
+    if (!fields["pages"]) {
+      formIsValid = false;
+      errors["pages"] = "*Pages cannot be empty";
+    }
+
+    this.setState({
+      errors: errors
+    });
+    return formIsValid
+  }
 
   removeRow = (index) =>{
     let booksClone = JSON.parse(localStorage.getItem('library'));
@@ -33,7 +58,13 @@ class App extends Component {
   toggleShown = () => {
     this.setState({
       isShown: !this.state.isShown,
-      addShown: !this.state.addShown
+      newBook: {
+        title: "",
+        author: "",
+        pages: "",
+        read: "no"
+      },
+      errors: {}
     })
   }
 
@@ -56,6 +87,7 @@ class App extends Component {
 
   handleSubmit =(e) => {
     e.preventDefault()
+    if(this.validateForm()){
     let booksClone = this.state.books.slice()
     booksClone.push({
       title: this.state.newBook.title,
@@ -71,8 +103,10 @@ class App extends Component {
         author: "",
         pages: "",
         read: "no"
-      }
+      },
+      errors: {}
     })
+    }
   }
 
   render() {

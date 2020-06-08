@@ -4,18 +4,17 @@ import Input from "./input";
 const Form = ({titleValue, authorValue, toggleShown, pagesValue, isShown, read, handleChange, submitForm, error}) => {
   return (
     <>
-    <form className="sm:w-1/2 w-full border-2 flex-col m-2 p-2 rounded-sm" onSubmit={submitForm} style={{display: isShown ? 'flex' : 'none' }}>
-      <div className="cursor-pointer self-end" onClick={toggleShown} >
-        X
+    <form className="slide sm:w-1/2 w-full border-2 flex-col m-2 p-2 rounded-sm" onSubmit={submitForm} style={{display: isShown ? 'flex' : 'none' }}>
+      <div className="cursor-pointer text-gray-800 hover:text-gray-600 self-end text-2xl" onClick={toggleShown} >
+        &#10005;
       </div>
-      <Input name="title" value={titleValue} handleChange={handleChange} type="text" placeholder="The Hobbit">
+      <Input error={error.title} name="title" value={titleValue} handleChange={handleChange} type="text" placeholder="The Hobbit">
         <label htmlFor="title">Title</label>
       </Input>
-      {error.length < 5 && <span>Cannot be empty</span>}
-      <Input name="author" value={authorValue} handleChange={handleChange} type="text" placeholder="J.R.R. Tolkien">
+      <Input error={error.author} name="author" value={authorValue} handleChange={handleChange} type="text" placeholder="J.R.R. Tolkien">
         <label htmlFor="author">Author</label>
       </Input>
-      <Input name="pages" value={pagesValue} handleChange={handleChange} type="number" placeholder="295">
+      <Input error={error.pages} name="pages" value={pagesValue} handleChange={handleChange} type="number" placeholder="295">
         <label htmlFor="pages">Pages</label>
       </Input>
       <fieldset className="bg-white m-2 rounded-lg">

@@ -1,5 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Thambi+2&display=swap');
+
 body {
+  font-family: 'Baloo Thambi 2', cursive;
   padding: 10px;
   min-height: 100vh;
   background-image: linear-gradient(-225deg, #9EFBD3 0%, #57E9F2 48%, #45D4FB 100%);
+}
+
+@keyframes slide-down {
+  from {
+      max-height: 0;
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+      max-height: 1000px;
+  }
+}
+
+.slide {
+  animation: slide-down .3s ease-in;
 }

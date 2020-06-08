@@ -5,10 +5,10 @@ const StyledInput = styled.input`
   padding: 5px;
 `
 
-const Input = ({type, value, placeholder, name, checked, children, handleChange}) => {
+const Input = ({type, value, placeholder, name, checked, children, handleChange, error}) => {
   return (
     <div
-      className={type== "radio" ? "flex m-2 items-center justify-start" : "mb-4 flex flex-col items-start justify"}
+      className={type== "radio" ? "flex m-2 items-center justify-start" : "mb-4 flex flex-col items-start justify-start"}
       >
       {children}
       <StyledInput
@@ -21,6 +21,7 @@ const Input = ({type, value, placeholder, name, checked, children, handleChange}
       id={name}
       checked={checked}
       />
+      <span className="text-sm text-red-800 pt-1">{error}</span>
     </div>
   )
 }
